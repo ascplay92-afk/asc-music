@@ -11,6 +11,6 @@ migrations_dir = "migrations"
 [vars]
 ACCESS_TEAM_DOMAIN = "your-team.cloudflareaccess.com"
 ACCESS_AUD = "configure-this-in-cloudflare-access"
-APP_ORIGIN = "https://your-web-domain.example"
+APP_ORIGIN = "https://asc-music.pages.dev"
 SUPABASE_URL = "https://bodlzdmtoaezftooewqi.supabase.co"
 MUSICBRAINZ_CONTACT_URL = ""
