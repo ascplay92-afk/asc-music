@@ -81,7 +81,14 @@ export class DriveConnector {
     await loadScript("https://apis.google.com/js/api.js");
     await new Promise((resolve, reject) => {
       if (google.picker) return resolve();
-      google.load("picker", { callback: resolve, onerror: () => reject(new Error("Google Picker could not load.")) });
+      if (!window.gapi || typeof window.gapi.load !== "function") {
+        reject(new Error("O Google Picker não pôde ser carregado. Recarregue a página e tente novamente."));
+        return;
+      }
+      window.gapi.load("picker", {
+        callback: resolve,
+        onerror: () => reject(new Error("O Google Picker não pôde ser carregado. Recarregue a página e tente novamente.")),
+      });
     });
     return new Promise((resolve, reject) => {
       const view = new google.picker.DocsView(google.picker.ViewId.FOLDERS)
