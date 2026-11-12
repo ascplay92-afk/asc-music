@@ -1,0 +1,9 @@
+<resources>
+    <style name="Theme.ASCMusic" parent="@android:style/Theme.Material.NoActionBar">
+        <item name="android:fontFamily">sans</item>
+        <item name="android:colorAccent">#C8FA72</item>
+        <item name="android:statusBarColor">#101210</item>
+        <item name="android:navigationBarColor">#101210</item>
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+</resources>

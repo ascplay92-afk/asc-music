@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#111312" />
+    <meta
+      name="description"
+      content="Sua biblioteca de música, organizada. Compare playlists com suas músicas locais e descubra o que está faltando."
+    />
+    <title>ASC Music — Sua música, por inteiro</title>
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Navegação principal">
+        <a class="brand" href="#" data-view="home" aria-label="ASC Music, início">
+          <span class="brand-mark" aria-hidden="true">a<span>.</span></span>
+          <span class="brand-name">ASC<span> MUSIC</span></span>
+        </a>
+
+        <div class="sidebar-label">ESPAÇO PESSOAL</div>
+        <nav class="nav-group">
+          <button class="nav-item active" data-view="home"><span class="nav-icon">⌂</span>Início</button>
+          <button class="nav-item" data-view="discover"><span class="nav-icon">✳</span>Descobrir</button>
+          <button class="nav-item" data-view="library"><span class="nav-icon">▤</span>Biblioteca</button>
+          <button class="nav-item" data-view="playlists"><span class="nav-icon">≡</span>Playlists</button>
+          <button class="nav-item" data-view="matches"><span class="nav-icon">◈</span>ASC Match</button>
+          <button class="nav-item" data-view="missing" aria-label="Músicas faltantes" title="Músicas faltantes"><span class="nav-icon" aria-hidden="true">↗</span>Faltantes<span class="nav-count" id="missing-count">0</span></button>
+          <button class="nav-item" data-view="favorites"><span class="nav-icon">♡</span>Favoritas</button>
+          <button class="nav-item" data-view="history"><span class="nav-icon">◷</span>Histórico</button>
+        </nav>
+
+        <div class="sidebar-label sidebar-playlists-label">SUAS PLAYLISTS</div>
+        <div class="sidebar-playlists" id="sidebar-playlists"></div>
+        <button class="sidebar-create" data-action="new-playlist"><span>＋</span> Nova playlist</button>
+
+        <div class="sidebar-bottom">
+          <div class="library-status"><span class="status-dot" id="library-dot"></span><span id="library-status">Biblioteca local</span></div>
+          <button class="nav-item settings-link" data-action="settings"><span class="nav-icon">⚙</span>Configurações</button>
+          <div class="profile">
+            <span class="profile-avatar">A</span>
+            <span class="profile-info"><strong>Sua coleção</strong><small>Espaço pessoal</small></span>
+            <span class="profile-more">···</span>
+          </div>
+        </div>
+      </aside>
+
+      <main class="main-area">
+        <header class="topbar">
+          <div class="breadcrumbs"><span>ASC MUSIC</span><span class="crumb-divider">/</span><strong id="page-crumb">Início</strong></div>
+          <div class="topbar-actions">
+            <button class="icon-button" data-action="search" aria-label="Buscar" title="Buscar">⌕</button>
+            <button class="button button-outline button-small" data-action="connect-spotify"><span class="spotify-dot">●</span> Conectar Spotify</button>
+            <button class="button button-primary button-small" data-action="connect-drive"><span>↥</span> Conectar Drive</button>
+            <button class="avatar-button" data-action="settings" aria-label="Configurações">A</button>
+          </div>
+        </header>
+
+        <div class="content-scroll">
+          <div id="app-content" class="page-content"></div>
+        </div>
+      </main>
+    </div>
+
+    <section class="player-bar" id="player-bar" hidden aria-label="Player de música">
+      <div class="player-track">
+        <img id="player-cover" class="player-cover" alt="" />
+        <div class="player-meta"><strong id="player-title">—</strong><span id="player-artist">—</span></div>
+        <button class="player-like" data-action="toggle-current-favorite" aria-label="Favoritar">♡</button>
+      </div>
+      <div class="player-center">
+        <div class="player-controls">
+          <button data-action="shuffle" class="player-minor" aria-label="Aleatório">⤨</button>
+          <button data-action="previous" class="player-minor" aria-label="Anterior">◂</button>
+          <button data-action="toggle-play" class="play-button" id="play-button" aria-label="Reproduzir">▶</button>
+          <button data-action="next" class="player-minor" aria-label="Próxima">▸</button>
+          <button data-action="repeat" class="player-minor" aria-label="Repetir">↻</button>
+        </div>
+        <div class="progress-row"><span id="current-time">0:00</span><input id="seek-bar" type="range" min="0" max="1000" value="0" aria-label="Posição da música" /><span id="duration-time">0:00</span></div>
+      </div>
+      <div class="player-extra"><span id="player-status">ASC Music</span><button class="volume-button" data-action="volume" aria-label="Volume">◖</button><input id="volume-bar" type="range" min="0" max="100" value="80" aria-label="Volume" hidden /></div>
+    </section>
+
+    <audio id="audio-player" preload="metadata"></audio>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <dialog id="import-dialog" class="modal"></dialog>
+    <dialog id="settings-dialog" class="modal"></dialog>
+
+    <script type="module" src="/src/app.js"></script>
+  </body>
+</html>

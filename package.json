@@ -1,0 +1,32 @@
+{
+  "name": "asc-music",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Personal music library, discovery, playlists, and availability matching.",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "vite build",
+    "preview": "vite preview --host 127.0.0.1",
+    "api:dev": "wrangler dev --config backend/wrangler.toml",
+    "api:deploy": "wrangler deploy --config backend/wrangler.toml",
+    "db:migrate:local": "wrangler d1 migrations apply asc-music --local --config backend/wrangler.toml",
+    "db:migrate:remote": "wrangler d1 migrations apply asc-music --remote --config backend/wrangler.toml",
+    "test": "node --test",
+    "test:worker": "node --test backend/test/*.test.js",
+    "test:android": "android\\gradlew.bat -p android :app:testDebugUnitTest",
+    "check": "npm test && npm run build",
+    "check:all": "npm run check && npm run test:android"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.119.0",
+    "music-metadata": "^12.4.0"
+  },
+  "devDependencies": {
+    "vite": "^8.3.8",
+    "wrangler": "^4.77.0"
+  },
+  "engines": {
+    "node": ">=22.5.0"
+  }
+}

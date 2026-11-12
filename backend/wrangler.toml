@@ -1,0 +1,16 @@
+name = "asc-music-api"
+main = "src/index.js"
+compatibility_date = "2026-10-01"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "asc-music"
+database_id = "00000000-0000-0000-0000-000000000001"
+migrations_dir = "migrations"
+
+[vars]
+ACCESS_TEAM_DOMAIN = "your-team.cloudflareaccess.com"
+ACCESS_AUD = "configure-this-in-cloudflare-access"
+APP_ORIGIN = "https://your-web-domain.example"
+SUPABASE_URL = "https://bodlzdmtoaezftooewqi.supabase.co"
+MUSICBRAINZ_CONTACT_URL = ""

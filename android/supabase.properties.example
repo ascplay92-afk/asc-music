@@ -1,0 +1,5 @@
+supabase.url=https://your-project.supabase.co
+supabase.publishableKey=your-public-publishable-key
+asc.apiBaseUrl=https://your-worker.example
+google.drive.clientId=
+spotify.clientId=
