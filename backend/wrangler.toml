@@ -5,7 +5,7 @@ compatibility_date = "2026-10-01"
 [[d1_databases]]
 binding = "DB"
 database_name = "asc-music"
-database_id = "00000000-0000-0000-0000-000000000001"
+database_id = "da8e2663-b9c7-4a9a-9c52-f815f269afc8"
 migrations_dir = "migrations"
 
 [vars]
